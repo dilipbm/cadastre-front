@@ -72,7 +72,9 @@ const geolocalisation = {
       state.cadastreData = data;
     },
     updatePolygonData(state, { latlngs }) {
-      state.polygon.latlngs = latlngs[0].map((x) => x.reverse());
+      if (latlngs && latlngs.length > 0) {
+        state.polygon.latlngs = latlngs[0].map((x) => x.reverse());
+      }
     },
     updateSearchAddress(state, value) {
       state.searchAddress = value;
@@ -86,6 +88,7 @@ const geolocalisation = {
   },
   actions: {
     getParcell: (context, { vm, latitude, longtitude }) => {
+      context.commit("updatePolygonData", { latlngs: [] });
       apiGetParcelle({ latitude, longtitude })
         .then((response) => {
           console.log(response);
