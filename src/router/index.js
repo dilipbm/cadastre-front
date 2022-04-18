@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import GeolocationView from "../views/GeolocationView.vue";
+import BulkcollectionView from "../views/BulkcollectionView.vue";
 
 Vue.use(VueRouter);
 
@@ -9,6 +11,16 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/bulkcollect",
+    name: "bulkcollect",
+    component: BulkcollectionView,
+  },
+  {
+    path: "/geolocalisation",
+    name: "geolocalisation",
+    component: GeolocationView,
   },
   {
     path: "/about",

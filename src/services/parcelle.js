@@ -1,14 +1,14 @@
 import httpClient from ".";
 
 const uploadFile = (formData) =>
-  httpClient.post(`/uploadfile`, formData, {
+  httpClient.post(`parcelle/uploadfile`, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
 
 const getParcelles = (filename, latColName, lgtColName, seperator) =>
-  httpClient.get(`/getParcelles`, {
+  httpClient.get(`parcelle/getParcelles`, {
     params: {
       filename: filename,
       latcolname: latColName,
@@ -17,6 +17,7 @@ const getParcelles = (filename, latColName, lgtColName, seperator) =>
     },
   });
 
-const downloadResult = (taskId) => httpClient.get(`/downloadResult/${taskId}`);
+const downloadResult = (taskId) =>
+  httpClient.get(`parcelle/downloadResult/${taskId}`);
 
 export { downloadResult, getParcelles, uploadFile };
